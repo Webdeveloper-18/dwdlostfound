@@ -9,7 +9,7 @@ const AboutUs = () => {
           About Us
         </Typography>
         <Typography variant="body1" paragraph fontWeight={600} fontSize={20} color="orange">
-          Jai Siya Ram 
+        जय सिया राम
         </Typography>
         <Typography variant="body1" paragraph>
           Welcome to LostNFound! I'm Ganesh(22BDS067), a second-year student majoring in Data Science and Artificial Intelligence.

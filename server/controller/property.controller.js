@@ -15,21 +15,11 @@ cloudinary.config({
 
 const getAllProperty=async(req,res)=>{
 
-  const {_end,_order,_start,_sort,title_like="",propertyType=""}=req.query
-   const query={}
-   if(propertyType!==''){
-    query.propertyType=propertyType
-   }
-   if(title_like){
-    query.title={$regex:title_like,$options:'i'}
-
-   }
+ 
   try {
-    const count=await propertyModel.countDocuments({query})
-    const properties=await propertyModel.find(query).limit(_end).skip(_start).sort({[_sort]:_order})
-    
-    res.header('x-total-count',count);
-    res.header('Access-Control-Expose-Headers','x-total-count')
+     
+    const properties=await propertyModel.find({}).sort({createdAt:-1})
+   
 
     res.status(200).json(properties)
   } catch (error) {

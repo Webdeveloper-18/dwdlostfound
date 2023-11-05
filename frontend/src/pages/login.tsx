@@ -1,5 +1,5 @@
 import { useLogin } from "@refinedev/core";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -14,12 +14,15 @@ const GOOGLE_CLIENT_ID =
   "798905151781-k7p9boekli2u66k0u3v0u0adqbj91knu.apps.googleusercontent.com";
 
 export const Login: React.FC = () => {
+  
   const { mutate: login } = useLogin<CredentialResponse>();
 
   const GoogleButton = (): JSX.Element => {
+      
     const divRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+      
       if (typeof window === "undefined" || !window.google || !divRef.current) {
         return;
       }
@@ -42,6 +45,7 @@ export const Login: React.FC = () => {
       } catch (error) {
         console.log(error);
       }
+     
     }, []);
 
     return <div ref={divRef} />;
@@ -64,7 +68,7 @@ export const Login: React.FC = () => {
         alignItems="center"
       >
         <div>
-          <Typography fontSize={25} fontWeight={600} color="GrayText">FoundNLost!</Typography>
+          <Typography fontSize={25} fontWeight={600} color="GrayText">LostNFound!</Typography>
           
         </div>
 
